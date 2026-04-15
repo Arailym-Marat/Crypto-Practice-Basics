@@ -1,0 +1,12 @@
+from cryptography.fernet import Fernet
+
+key = Fernet.generate_key()
+cipher_suite = Fernet(key)
+
+text = "Секретные данные практики".encode()
+
+cipher_text = cipher_suite.encrypt(text)
+print(f"Зашифровано: {cipher_text}")
+
+plain_text = cipher_suite.decrypt(cipher_text)
+print(f"Расшифровано: {plain_text.decode()}")
